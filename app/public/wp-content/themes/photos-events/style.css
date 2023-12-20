@@ -1,0 +1,549 @@
+/*
+Theme Name: Nathalie Mota
+Author: Nathalie Moa
+Author URI: https://openclassrooms.com
+Description: Thème pour une photographe professionnelle dans l’événementiel"
+Version: 1.0
+Tags: photographe, événement, professionel 
+Text Domain:  photographie professionnelle dans l’événementiel
+*/
+
+
+
+
+/*front-page*/
+
+/*header */
+
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 70px;
+
+}
+
+.logo img {
+    width: 26vw;
+    height: auto;
+
+}
+
+.main-navigation ul {
+    list-style: none;
+    padding: 10px 50px 10px 0;
+    /* Haut, Droite, Bas, Gauche */
+
+    margin: 0;
+    display: flex;
+}
+
+.main-navigation ul li {
+    margin-left: 30px;
+}
+
+.main-navigation a {
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    color: #000;
+
+}
+
+
+
+/*footer*/
+
+
+.site-footer {
+
+    padding: 0;
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    /* Centre les éléments horizontalement */
+    margin: 10px 100px;
+
+}
+
+.menu li {
+    margin: 15px 0;
+    text-decoration: none;
+
+    text-align: center;
+
+    list-style: none;
+
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    font-weight: 400;
+    /* Enlève le soulignement des liens */
+}
+
+
+.footer-line {
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+/*popup*/
+
+
+
+.popup-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000060;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    /* à enlever */
+    top: 0;
+    left: 0;
+}
+
+.popup-salon {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    max-width: 500px;
+    width: 80%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+.popup-btn,
+.popup-salon .wpcf7-submit {
+    width: calc(100% - 60px);
+    display: inline-block;
+    background-color: rgba(216, 216, 216, 1);
+    line-height: 20px;
+    padding: 6px 16px;
+    color: rgba(0, 0, 0, 1);
+    border-radius: 6px;
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+}
+
+
+
+.popup-header {
+
+    margin-bottom: 20px;
+}
+
+.popup-header p {
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: 400;
+
+}
+
+.popup-close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+/* Styling pour les champs de saisie dans le formulaire Contact Form 7 */
+
+.popup-salon input[type="text"],
+.popup-salon input[type="email"],
+.popup-salon input[type="number"],
+.popup-salon textarea {
+    width: calc(100% - 60px);
+    max-width: 100%;
+    height: 40px;
+    border: 1px solid rgba(184, 187, 194, 1);
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+
+
+
+/* Quatrième champ (textarea) */
+.popup-salon textarea {
+    width: calc(100% - 60px);
+    height: 150px;
+    top: 23px;
+    border: 1px solid rgba(184, 187, 194, 1);
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+
+/*banner*/
+.banner {
+    position: relative;
+}
+
+.img-banner {
+    width: 100%;
+}
+
+.site-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Autres styles pour le titre si nécessaire */
+}
+
+
+
+/* CSS pour la galerie */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Deux colonnes */
+    gap: 20px;
+    /* Espacement entre les images */
+    margin: 30px 100px 20px 100px;
+}
+
+.gallery-item {
+    width: 100%;
+    /* Pour s'assurer que chaque élément occupe toute la largeur de la colonne */
+}
+
+.gallery-item img {
+    Width: 500px;
+    Height: 400px;
+    /* Ajuste la hauteur en fonction de la largeur pour maintenir les proportions */
+    max-width: 100%;
+    /* Largeur maximale de l'image */
+
+    display: block;
+    /* Élimine l'espace supplémentaire sous les images */
+    margin: 0 auto;
+    /* Centre les images horizontalement */
+    object-fit: cover;
+}
+
+.gallery-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 120px 20px 120px;
+}
+
+.gallery-filters select {
+    border: 1.3px solid rgba(184, 187, 194, 1);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0;
+    padding: 11px 18px;
+    /* Ajout de l'espacement souhaité */
+    width: 260px;
+    /* Largeur fixée */
+    height: 42px;
+    /* Hauteur fixée */
+}
+
+#category-filter,
+#format-filter {
+    flex: 0 0 120px;
+    /* Redimensionne la largeur des boutons */
+
+    /* Ajuste la largeur des selects pour les aligner */
+    margin-right: 10px;
+    /* Ajoute un peu d'espace entre les boutons */
+}
+
+#date-filter {
+    flex: 0 0 120px;
+    margin-left: auto;
+    /* Déplace le select 'date-filter' vers la droite */
+}
+
+
+/* ... Vos styles précédents restent inchangés ... */
+
+/* CSS pour le bouton "Charger plus de photos" */
+#load-more {
+    border: 1.3px solid rgba(184, 187, 194, 1);
+
+
+    line-height: 18px;
+
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0;
+    text-align: center;
+
+    /* Centrer horizontalement */
+    padding: 11px 18px;
+    width: 260px;
+    height: 42px;
+    display: block;
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    border-radius: 2px;
+    margin: 20px auto;
+    background-color: rgba(216, 216, 216, 1);
+    /* Centrer le bouton horizontalement */
+}
+
+/*style pour single-photo */
+
+
+#primary {
+    margin: 30px 60px;
+
+}
+
+
+
+/* Style pour aligner la photo à droite et les informations à gauche */
+.photo-details {
+    display: flex;
+    flex-direction: row;
+    margin: 30px 30px;
+}
+
+/* Style pour la div contenant la photo */
+.main-photo {
+    flex: 0 0 50%;
+}
+
+.main-photo img {
+    width: 450px;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* les informations sur la photo */
+
+.photo-info {
+    flex: 0 0 50%;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 13.3em;
+    margin-right: 10px;
+}
+
+.photo-info h2 {
+
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 50px;
+    line-height: 58px;
+
+}
+
+.title-container {
+    max-width: 345px;
+
+}
+
+.photo-info ul {
+    list-style: none;
+    padding: 0 10px 40px 0px;
+    border-bottom: 1px solid #000;
+
+}
+
+.photo-info ul li {
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.1em;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+
+
+
+.info {
+    display: flex;
+    gap: 8em;
+    align-items: center;
+    margin: 70px 0px;
+
+}
+
+.info p {
+    margin: 0;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    letter-spacing: 0em;
+}
+
+.info a {
+    margin: 0;
+    Padding: 15px 35px 15px 35px;
+    border: none;
+    border-radius: 2px;
+    background-color: rgba(216, 216, 216, 1);
+    font-family: 'Space Mono', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+
+}
+
+/*miniatures */
+.thumbnail-image {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin: 5px 0px;
+}
+
+.thumbnail-image img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+
+    &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+.category-thumbnail {
+    display: flex;
+    justify-content: right;
+    margin-right: 80px;
+}
+
+.additional-arrows {
+    display: flex;
+    gap: 60px
+}
+
+.arrow-left,
+.arrow-right {
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* Bordure noire */
+    transform: rotate(-180deg);
+    /* Rotation à 180 degrés */
+}
+
+.arrow-left i,
+.arrow-right i {
+    font-size: 20px;
+    /* Taille de la flèche */
+    color: rgba(0, 0, 0, 1);
+    /* Couleur de la flèche */
+}
+
+
+
+
+/*random*/
+.random-photos {
+    margin: 30px 30px;
+    padding-top: 35px;
+}
+
+.related-photos-p {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0.1em;
+    text-align: left;
+    /* Ajoute d'autres styles si nécessaire */
+}
+
+.more-photos-button {
+    text-align: center;
+    /* Centrer le bouton horizontalement */
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    /* Ajoute de l'espace entre les photos et le bouton */
+}
+
+.view-more-link {
+    display: flex;
+    /* Utilisation de flexbox */
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement */
+    background: rgba(216, 216, 216, 1);
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+    /* Ajoute d'autres styles si nécessaire */
+}
+
+.view-more-link .button-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: black;
+    /* Ajoute d'autres styles si nécessaire */
+}
