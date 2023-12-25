@@ -13,7 +13,7 @@
     </div>
     <div class="footer-line"></div>
 </footer>
-
+<?php get_template_part('template-parts/modal-contact'); ?>
 
 
 

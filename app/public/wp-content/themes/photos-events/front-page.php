@@ -74,8 +74,15 @@
                     <div class="gallery-item">
                         <a href="<?php the_permalink(); ?>">
                             <img src="<?php echo $image_url[0]; ?>" alt="<?php the_title(); ?>">
+                            <div class="overlay">
+                                <div class="icons">
+                                    <a href="<?php the_permalink(); ?>" class="info-icon"><i class="fas fa-eye"></i></a>
+                                    <a href="<?php echo $image_url[0]; ?>" class="fullscreen-icon" data-lightbox="image"><i class="fas fa-expand"></i></a>
+                                </div>
+                            </div>
                         </a>
                     </div>
+
         <?php
                 }
             }

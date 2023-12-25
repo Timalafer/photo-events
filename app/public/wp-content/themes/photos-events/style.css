@@ -244,6 +244,11 @@ Text Domain:  photographie professionnelle dans l’événementiel
 
 .gallery-item {
     width: 100%;
+    position: relative;
+    /* Assurez-vous que la position est définie pour le positionnement des icônes */
+
+    overflow: hidden;
+    /* Cachez les icônes e
     /* Pour s'assurer que chaque élément occupe toute la largeur de la colonne */
 }
 
@@ -302,6 +307,43 @@ Text Domain:  photographie professionnelle dans l’événementiel
     /* Déplace le select 'date-filter' vers la droite */
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+    /* Afficher l'overlay au survol */
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icons a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.icons a:hover {
+    transform: scale(1.2);
+    /* Augmenter légèrement la taille des icônes au survol */
+}
 
 /* ... Vos styles précédents restent inchangés ... */
 
@@ -334,6 +376,8 @@ Text Domain:  photographie professionnelle dans l’événementiel
     /* Centrer le bouton horizontalement */
 }
 
+
+
 /*style pour single-photo */
 
 
@@ -345,6 +389,10 @@ Text Domain:  photographie professionnelle dans l’événementiel
 
 
 /* Style pour aligner la photo à droite et les informations à gauche */
+.photo-container {
+    padding: 0 50px
+}
+
 .photo-details {
     display: flex;
     flex-direction: row;
@@ -547,3 +595,6 @@ Text Domain:  photographie professionnelle dans l’événementiel
     color: black;
     /* Ajoute d'autres styles si nécessaire */
 }
+
+
+/*moniature*/

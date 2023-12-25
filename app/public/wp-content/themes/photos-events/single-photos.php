@@ -108,15 +108,15 @@ get_header();
 					if ($next_post) {
 						$next_thumbnail = get_the_post_thumbnail($next_post->ID, 'thumbnail');
 					?>
+						<div class="next-photo">
+							<?php next_post_link('%link', $next_thumbnail); ?>
+						</div>
+
 						<!-- Ajout des flèches supplémentaires -->
-						<div class="thumbnail-image">
+						<div class="arrows">
 							<div class="additional-arrows" data-category="<?php echo $current_category; ?>">
 								<?php
-								$previous_post = get_adjacent_post(false, '', true, 'categorie');
-								$next_post = get_adjacent_post(false, '', false, 'categorie');
-
 								if ($previous_post) {
-									$prev_thumbnail = get_the_post_thumbnail($previous_post->ID, 'thumbnail');
 								?>
 									<div class="arrow-left">
 										<a href="<?php echo esc_url(get_permalink($previous_post->ID)); ?>">
@@ -127,7 +127,6 @@ get_header();
 								}
 
 								if ($next_post) {
-									$next_thumbnail = get_the_post_thumbnail($next_post->ID, 'thumbnail');
 								?>
 									<div class="arrow-right">
 										<a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>">
@@ -139,15 +138,59 @@ get_header();
 								?>
 							</div>
 						</div>
-
-
 					<?php } ?>
 				</div>
+
 			</div>
 
 
 
 		</section>
+		<script>
+			// Récupération des éléments des miniatures
+			const prevThumbnail = document.querySelector('.previous-photo');
+			const nextThumbnail = document.querySelector('.next-photo');
+
+			// Cacher les miniatures au chargement de la page
+			if (prevThumbnail) {
+				prevThumbnail.style.display = 'none';
+			}
+			if (nextThumbnail) {
+				nextThumbnail.style.display = 'none';
+			}
+
+			// Ajout des écouteurs d'événements pour le survol des flèches
+			document.querySelector('.arrow-left').addEventListener('mouseenter', function() {
+				if (prevThumbnail) {
+					prevThumbnail.style.display = 'block';
+				}
+				if (nextThumbnail) {
+					nextThumbnail.style.display = 'none';
+				}
+			});
+
+			document.querySelector('.arrow-right').addEventListener('mouseenter', function() {
+				if (prevThumbnail) {
+					prevThumbnail.style.display = 'none';
+				}
+				if (nextThumbnail) {
+					nextThumbnail.style.display = 'block';
+				}
+			});
+
+			// Cacher les miniatures lorsque le curseur n'est plus au survol des flèches
+			document.querySelector('.arrow-left').addEventListener('mouseleave', function() {
+				if (prevThumbnail) {
+					prevThumbnail.style.display = 'none';
+				}
+			});
+
+			document.querySelector('.arrow-right').addEventListener('mouseleave', function() {
+				if (nextThumbnail) {
+					nextThumbnail.style.display = 'none';
+				}
+			});
+		</script>
 
 
 
@@ -163,10 +206,10 @@ get_header();
 				$categories = get_the_terms($post->ID, 'categorie');
 				$current_category = !empty($categories) ? $categories[0]->term_id : 0;
 
-				// Query pour récupérer deux posts de votre Custom Post Type 'photos' de la même catégorie
+				// Query pour récupérer toutes les photos de votre Custom Post Type 'photos' de la même catégorie
 				$args = array(
 					'post_type' => 'photos',
-					'posts_per_page' => 2,
+					'posts_per_page' => 2, // Charger toutes les photos
 					'tax_query' => array(
 						array(
 							'taxonomy' => 'categorie',
@@ -178,17 +221,14 @@ get_header();
 
 				$photos_query = new WP_Query($args);
 
-
 				if ($photos_query->have_posts()) {
 					while ($photos_query->have_posts()) {
 						$photos_query->the_post();
-						// Vérifier si le post a une image mise en avant
 						if (has_post_thumbnail()) {
-							// Récupérer l'URL de l'image mise en avant du post actuel
 							$image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
 				?>
 							<div class="gallery-item">
-								<a href="<?php the_permalink(); ?>"> <!-- Ajout du lien vers la page single -->
+								<a href="<?php the_permalink(); ?>"> <!-- Lien vers la page single -->
 									<img src="<?php echo $image_url[0]; ?>" alt="<?php the_title(); ?>">
 								</a>
 							</div>
@@ -208,8 +248,8 @@ get_header();
 					<span class="button-text">Voir plus de photos</span>
 				</a>
 			</div>
-
 		</section>
+
 
 
 	<?php endwhile; // End of the loop. 
